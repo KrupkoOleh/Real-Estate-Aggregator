@@ -9,12 +9,26 @@
     </thead>
     <tbody>
     {% for item in object_list %}
-    <tr>
-        <th scope="row">{{ forloop.counter }}</th>
-        <td>{{ item.title }}</td>
-        <td>{{ item.price }}</td>
-        <td>{{ item.link }}</td>
-    </tr>
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ item.title }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.link }}</td>
+        </tr>
     {% endfor %}
+    <tr>
+        <td colspan="4">
+            <div class="p-2 bg-light">
+                <button type="button"
+                        class="btn btn-primary"
+                        hx-get="{% url 'popup_create' %}"
+                        hx-target="body"
+                        hx-swap="beforeend">
+                    Add new record
+                </button>
+
+            </div>
+        </td>
+    </tr>
     </tbody>
 </table>

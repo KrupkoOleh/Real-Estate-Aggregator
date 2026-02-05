@@ -1,0 +1,42 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/parts/modal.css' %}">
+
+<div id="modal"
+     _="on closeModal add .closing then wait for animationend then remove me on listeningListChanged from:body trigger closeModal">
+    <div class="modal-underlay" _="on click trigger closeModal"></div>
+    <div class="modal-content">
+        <div id="popup-overlay-create">
+            <div id="popup-create">
+                <button class="popup-close-create" _="on click trigger closeModal">
+                    ×
+                </button>
+                <div class="popup-header-create">
+                    <h3 class="popup-name-create">Створити оголошення</h3>
+                    <span class="popup-instruction">
+                        Заповніть поля нижче, щоб додати нове оголошення
+                    </span>
+                </div>
+                <div id="popup-inner-create">
+                    <form id="createListeningForm" method="post"
+                          hx-post="{% url 'create_listening' %}">
+                        {% csrf_token %}
+
+                        <label for="{{ form.title.id_for_label }}" class="desc-form-input">Назва</label>
+                        {{ form.title }}
+                        {{ form.title.errors }}
+
+                        <label for="{{ form.price.id_for_label }}" class="desc-form-input">Ціна</label>
+                        {{ form.price }}
+                        {{ form.price.errors }}
+
+                        <label for="{{ form.link.id_for_label }}" class="desc-form-input">Посилання</label>
+                        {{ form.link }}
+                        {{ form.link.errors }}
+
+                        <button type="submit" class="btn-create">Створити</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
