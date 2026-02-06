@@ -1,0 +1,47 @@
+<div id="dashboard-table-container">
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Link</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in object_list %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ item.title }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.link }}</td>
+                <td>
+                    <form hx-post="{% url 'delete_listening' item.pk %}"
+                          hx-confirm="Are you sure you want to delete this item?"
+                          style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="5">
+                <div class="p-2 bg-light">
+                    <button type="button"
+                            class="btn btn-primary"
+                            hx-get="{% url 'popup_create' %}"
+                            hx-target="body"
+                            hx-swap="beforeend">
+                        Add new record
+                    </button>
+
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,17 @@
+body, html {
+    margin: 0;
+    background-color: #FAFAFA;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    padding: 60px 20px;
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+}
