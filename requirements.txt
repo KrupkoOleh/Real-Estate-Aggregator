@@ -1,0 +1,7 @@
+Django==6.0.2
+flake8==6.0.0
+django-environ==0.10.0
+pillow==12.1.0
+beautifulsoup4==4.14.3
+requests
+mysqlclient
