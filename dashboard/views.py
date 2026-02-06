@@ -27,6 +27,9 @@ class ListeningCreateView(CreateView):
         self.object = form.save()
         return HttpResponse(status=204, headers={'HX-Refresh': 'true'})
 
+    def form_invalid(self, form):
+        return render(self.request, self.template_name, {'form': form})
+
 
 class ListeningDeleteView(DeleteView):
     model = Listening
