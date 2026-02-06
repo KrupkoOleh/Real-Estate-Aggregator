@@ -1,10 +1,12 @@
+from django.contrib import messages
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DeleteView
 
 from dashboard.forms import ListeningForm
 from dashboard.models import Listening
+from dashboard.clients.lemasson_conseil import run_scraper
 
 
 class ListeningListView(ListView):
@@ -42,3 +44,12 @@ class ListeningDeleteView(DeleteView):
         self.object = self.get_object()
         self.object.delete()
         return HttpResponse(status=204, headers={'HX-Refresh': 'true'})
+
+
+def run_lemasson_parser_view(request):
+    try:
+        run_scraper()
+        messages.success(request, 'Парсинг успешно завершен!')
+    except Exception as e:
+        messages.error(request, f'Ошибка при парсинге: {e}')
+    return redirect('main')
