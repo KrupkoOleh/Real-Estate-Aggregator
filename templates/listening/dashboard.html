@@ -17,6 +17,12 @@
                 <td>{{ item.price }}</td>
                 <td><a href="{{ item.link }}">{{ item.link }}</a></td>
                 <td>
+                    <button class="btn btn-primary btn-sm"
+                            hx-get="{% url 'update_listening' item.pk %}"
+                            hx-target="body"
+                            hx-swap="beforeend">
+                        Edit
+                    </button>
                     <form hx-post="{% url 'delete_listening' item.pk %}"
                           hx-confirm="Are you sure you want to delete this item?"
                           style="display: inline;">
