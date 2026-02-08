@@ -18,7 +18,11 @@ class ListeningForm(forms.ModelForm):
 
     def clean_title(self):
         title = self.cleaned_data['title']
-        if Listening.objects.filter(title=title).exists():
+        qs = Listening.objects.filter(title=title)
+        if self.instance.pk:
+            qs = qs.exclude(pk=self.instance.pk)
+
+        if qs.exists():
             raise forms.ValidationError('Title already exists')
         return title
 
@@ -30,6 +34,10 @@ class ListeningForm(forms.ModelForm):
 
     def clean_link(self):
         link = self.cleaned_data['link']
-        if Listening.objects.filter(link=link).exists():
+        qs = Listening.objects.filter(link=link)
+        if self.instance.pk:
+            qs = qs.exclude(pk=self.instance.pk)
+
+        if qs.exists():
             raise forms.ValidationError('Link already exists')
         return link
