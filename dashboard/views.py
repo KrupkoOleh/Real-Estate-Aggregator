@@ -13,6 +13,9 @@ class ListeningListView(ListView):
     model = Listening
     template_name = 'listening/main.html'
 
+    def get_queryset(self):
+        return Listening.objects.prefetch_related('images').all()
+
 
 def create_listening_popup(request):
     form = ListeningForm()

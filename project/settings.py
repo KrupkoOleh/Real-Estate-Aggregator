@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_ckeditor_5',
 
     'dashboard',
 ]
@@ -136,3 +137,22 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = 'media/'
 MEDIA_ROOT = 'media'
+
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': ['heading', '|', 'bold', 'italic', 'link',
+                    'bulletedList', 'numberedList',
+                    'blockQuote', 'imageUpload'],
+        'height': 300,
+        'width': '100%',
+    },
+    'extends': {
+        'toolbar': ['heading', '|', 'bold', 'italic', 'link',
+                    'bulletedList', 'numberedList', 'imageUpload',
+                    'insertTable', 'mediaEmbed'],
+        'height': 400,
+        'width': '100%',
+    }
+}
+
+CKEDITOR_5_FILE_UPLOAD_PERMISSION = "staff"
