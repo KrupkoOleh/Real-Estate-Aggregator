@@ -33,6 +33,14 @@
                         {{ form.link }}
                         {{ form.link.errors }}
 
+                        <label for="{{ form.description.id_for_label }}" class="desc-form-input">Опис</label>
+                        {{ form.description }}
+                        {{ form.description.errors }}
+
+                        <label for="{{ form.image_urls.id_for_label }}" class="desc-form-input">Зображення (URL)</label>
+                        {{ form.image_urls }}
+                        {{ form.image_urls.errors }}
+
                         <button type="submit" class="btn-create">Створити</button>
                     </form>
                 </div>
