@@ -16,7 +16,7 @@ This application allows users to collect, view, and manage real estate listings 
 - **Dashboard**: View all aggregated listings in a convenient table format.
 - **Parsing**: Automated collection of listings from external site (e.g., Lemasson Conseil).
 - **Duplicate Detection**: Automatically checks for existing listings by link or title to avoid duplicates.
-- **Management**: Add new listings manually or delete existing ones.
+- **Management**: Add new listings manually, update or delete existing ones.
 - **Interactive UI**: Modal windows for creating records and dynamic updates using HTMX without full page reloads.
 - **Notifications**: User feedback via Django Messages (success/error alerts).
 
@@ -49,8 +49,8 @@ This application allows users to collect, view, and manage real estate listings 
 
 ## Demonstration
 
-![image of the db](https://i.postimg.cc/7PnjnQmy/image.png)
-![image of the db](https://i.postimg.cc/0jjGmQVr/image.png)
-![image of the db](https://i.postimg.cc/CxkGb94y/image.png)
+![image of the db](https://i.postimg.cc/8z3PdTBt/image.png)
+![image of the db](https://i.postimg.cc/NFggGFBv/image.png)
+![image of the db](https://i.postimg.cc/WzXsdV1w/image.png)
 ![image of the db](https://i.postimg.cc/5NFLMDTc/image.png)
 ![image of the db](https://i.postimg.cc/tg9xWJTH/image.png)
