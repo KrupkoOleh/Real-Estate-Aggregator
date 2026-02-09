@@ -21,5 +21,6 @@ from dashboard.urls import urlpatterns as main_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("ckeditor5/", include('django_ckeditor_5.urls')),
     path('', include(main_urlpatterns))
 ]

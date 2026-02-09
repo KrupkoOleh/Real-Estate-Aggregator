@@ -11,14 +11,14 @@
                     ×
                 </button>
                 <div class="popup-header-create">
-                    <h3 class="popup-name-create">Створити оголошення</h3>
+                    <h3 class="popup-name-create">Редагувати оголошення</h3>
                     <span class="popup-instruction">
-                        Заповніть поля нижче, щоб додати нове оголошення
+                        Змініть поля нижче, щоб оновити оголошення
                     </span>
                 </div>
                 <div id="popup-inner-create">
-                    <form id="createListeningForm" method="post"
-                          hx-post="{% url 'create_listening' %}">
+                    <form id="updateListeningForm" method="post"
+                          hx-post="{% url 'update_listening' form.instance.pk %}">
                         {% csrf_token %}
 
                         <label for="{{ form.title.id_for_label }}" class="desc-form-input">Назва</label>
@@ -41,7 +41,7 @@
                         {{ form.image_urls }}
                         {{ form.image_urls.errors }}
 
-                        <button type="submit" class="btn-create">Створити</button>
+                        <button type="submit" class="btn-create">Зберегти</button>
                     </form>
                 </div>
             </div>
