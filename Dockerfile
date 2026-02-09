@@ -16,5 +16,6 @@ RUN pip install -r requirements.txt
 
 ENV PYTHONBREAKPOINT=ipdb.set_trace
 COPY ./entrypoint.sh .
+RUN chmod +x ./entrypoint.sh
 
 ENTRYPOINT ["./entrypoint.sh"]
